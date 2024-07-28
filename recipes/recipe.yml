@@ -32,7 +32,8 @@ modules:
 
   - type: script
     snippets:
-      - "curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install"
+      - "mkdir /var/roothome"
+      - "curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install linux --no-confirm --no-start-daemon --no-modify-profile"
 
   - type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
