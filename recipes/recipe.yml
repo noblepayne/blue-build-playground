@@ -32,7 +32,9 @@ modules:
 
   - type: script
     snippets:
-      - "mkdir /var/roothome"
+      - "ls -lh /"
+      - "ls -lh /var"
+      - "mkdir -p /var/roothome"
       - "curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install linux --no-confirm --no-start-daemon --no-modify-profile"
 
   - type: default-flatpaks
