@@ -1,7 +1,7 @@
 # image will be published to ghcr.io/<user>/<name>
-name: brewbegone
+name: benixed
 # description will be included in the image's metadata
-description: Swap homebrew for nix!
+description: add nix?
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-main
@@ -29,6 +29,10 @@ modules:
       # "firefox" is the main package, "firefox-langpacks" is a dependency
       # - firefox
       # - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+
+  - type: script
+    snippets:
+      - "curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install"
 
   - type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
